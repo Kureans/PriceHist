@@ -2,7 +2,7 @@
 
 <p>It's the Wayback Machine of Ecommerce Goods.</p>
 
-<form method="POST">
+<form method="GET" action="/search">
     <label>
         Search for a product and see its price over time:
         <input
