@@ -22,12 +22,31 @@ export async function findProduct(queryTerms: string[]) {
 	if (data.length === 0) {
 		return {'message': 'No Results Found. Would you like to start tracking your new search term?'};
 	}
-	const firstResult = data[0];
-    return getPrices(firstResult.id);
+
+    return { 'queries': data };
 }
 
-async function getPrices(queryId: number) {
-	const { data, error } = await client.from('prices').select().eq('query_id', queryId);
+export async function getQueryString(queryId: number) {
+	const { data, error } = await client
+		.from('queries')
+		.select('query_string')
+		.eq('id', queryId);
+
+	if (error) {
+		return { 'message': 'Error!'};
+	}
+	return { 'queryString': data };
+}
+
+export async function getPrices(queryId: number) {
+	const { data, error } = await client
+	.from('prices')
+	.select(`
+		*,
+		queries ( query_string )
+	`)
+	.eq('query_id', queryId);
+
     if (error) {
 		return {'message': 'Error!'};
 	}
