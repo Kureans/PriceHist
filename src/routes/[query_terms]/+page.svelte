@@ -26,22 +26,22 @@
 
 </script>
 
-<h1>Results for {queryString}</h1>
+<h1 class="text-vermillion">Results for {queryString}:</h1>
 
 {#if data.message}
-    <p>{data.message}</p>
+    <p class="text-white">{data.message}</p>
     {#if data.message !== "Error!"}
         {#if !isTracking}
-            <button on:click={() => beginTrackingQuery(queryString)}>Start Tracking</button>
+            <button class="sunshine text-white" on:click={() => beginTrackingQuery(queryString)}>Start Tracking</button>
         {:else}
-            <div>Successfully started Tracking!</div>
+            <div class="text-white">Successfully started Tracking!</div>
         {/if}
     {/if}
 {:else}
     {#if data.queries}
         <ul>
         {#each data.queries as { created_at, exclude_string, id, query_string }}
-            <a href="/graph/{id}"><li>Created At: {created_at}, Query String: {query_string}, Exclude String: {exclude_string}</li></a>
+            <a href="/graph/{id}"><li class="text-white">Created At: {created_at}, Query String: {query_string}, Exclude String: {exclude_string}</li></a>
         {/each}
         </ul>
     {/if}

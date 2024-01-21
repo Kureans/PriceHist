@@ -34,7 +34,7 @@
 </script>
 
 {#if data.prices && data.prices.length > 0}
-    <h1>Results for {data.prices[0].queries?.query_string}</h1>
+    <h1 class="text-vermillion">Results for {data.prices[0].queries?.query_string}:</h1>
 {:else}
     <h1>Sorry, no data points have been collected for this search term yet!</h1>
 {/if}
