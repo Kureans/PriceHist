@@ -26,18 +26,6 @@ export async function findProduct(queryTerms: string[]) {
     return { 'queries': data };
 }
 
-export async function getQueryString(queryId: number) {
-	const { data, error } = await client
-		.from('queries')
-		.select('query_string')
-		.eq('id', queryId);
-
-	if (error) {
-		return { 'message': 'Error!'};
-	}
-	return { 'queryString': data };
-}
-
 export async function getPrices(queryId: number) {
 	const { data, error } = await client
 	.from('prices')
@@ -55,4 +43,23 @@ export async function getPrices(queryId: number) {
     });
 
     return {'prices': data};
+}
+
+export async function insertQuery(queryString: string|null, excludeString: string|null) {
+	if (queryString == null) {
+		return {'message': "Error"};
+	}
+	const dtNow = new Date().toISOString();
+	console.log(dtNow);
+	const { error } = await client
+		.from('queries')
+		.insert({
+			created_at: dtNow,
+			query_string: queryString,
+			exclude_string: excludeString
+		});
+	if (error) {
+		return {'message': 'Error'};
+	}
+	return {'message': 'Successfully started tracking!'};
 }

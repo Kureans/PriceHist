@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Chart } from 'chart.js/auto';
 	import { onMount } from 'svelte';
-    import { page } from '$app/stores';
 
     export let data;
     let ctx: CanvasRenderingContext2D | null;
@@ -34,9 +33,12 @@
     });
 </script>
 
-{#if data.prices}
+{#if data.prices && data.prices.length > 0}
     <h1>Results for {data.prices[0].queries?.query_string}</h1>
+{:else}
+    <h1>Sorry, no data points have been collected for this search term yet!</h1>
 {/if}
+
 {#if data.message}
     <p>{data.message}</p>
 {:else}
