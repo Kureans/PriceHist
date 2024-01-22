@@ -34,7 +34,7 @@
 </script>
 
 {#if data.prices && data.prices.length > 0}
-    <h1 class="text-vermillion">Results for {data.prices[0].queries?.query_string}:</h1>
+    <h1 class="text-vermillion">Graph for {data.prices[0].queries?.query_string}:</h1>
 {:else}
     <h1>Sorry, no data points have been collected for this search term yet!</h1>
 {/if}
@@ -42,5 +42,9 @@
 {#if data.message}
     <p>{data.message}</p>
 {:else}
-    <div style="width: 800px;"><canvas bind:this={chartCanvas} id="price-history"></canvas></div>
+    <div style="width: 800px; background-color: white;"><canvas bind:this={chartCanvas} id="price-history"></canvas></div>
 {/if}
+
+<style>
+
+</style>

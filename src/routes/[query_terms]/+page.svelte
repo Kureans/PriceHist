@@ -51,7 +51,7 @@
         <div>
         {#each data.queries as { created_at, exclude_string, id, query_string }}
             <a class="link-container" href="/graph/{id}">
-                <div class="search-result clean margin-left-s">
+                <div class="search-result white margin-left-s">
                     <p>Started Tracking On: {created_at.substring(0, 10)}</p>
                     <p>Query String: {query_string}</p>
                     <p>Exclude String: {exclude_string}</p>
@@ -86,6 +86,9 @@
         width: 600px;
         padding: 10px;
         border-radius: 10px;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #F7B733;
     }
 
     .submit-button {
