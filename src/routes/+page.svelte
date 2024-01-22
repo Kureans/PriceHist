@@ -6,7 +6,10 @@
     <label class="text-white" for="query">
         Search for a product and see its price over time:
     </label>
-    <input class="input-size" type="text" id="query" name="query" />
+    <div id="input-container" class="centered">
+        <input class="input-size" type="text" id="query" name="query" />
+        <input type="submit" value="Search"/>
+    </div>
 </form>
 
 <style>
@@ -36,6 +39,10 @@
         padding: 5px;
         width: 40%;
         height: 100%;
+    }
+
+    #input-container {
+        width: 600px;
     }
 
     p {
