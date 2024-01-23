@@ -19,6 +19,7 @@ export interface Database {
           median_price: number | null
           query_dt: string
           query_id: number
+          std_dev_price: number | null
         }
         Insert: {
           ecommerce_name?: string | null
@@ -29,6 +30,7 @@ export interface Database {
           median_price?: number | null
           query_dt: string
           query_id: number
+          std_dev_price?: number | null
         }
         Update: {
           ecommerce_name?: string | null
@@ -39,6 +41,7 @@ export interface Database {
           median_price?: number | null
           query_dt?: string
           query_id?: number
+          std_dev_price?: number | null
         }
         Relationships: [
           {

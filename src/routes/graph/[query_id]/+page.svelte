@@ -6,14 +6,6 @@
     let ctx: CanvasRenderingContext2D | null;
     let chartCanvas: HTMLCanvasElement;
 
-    let medianPricesAmazon = data.prices
-        ?.filter((priceStats) => priceStats.ecommerce_name === 'amazon')
-        ?.map((priceStats) => priceStats.median_price);
-
-    let medianPricesLazada = data.prices
-        ?.filter((priceStats) => priceStats.ecommerce_name === 'lazada')
-        ?.map((priceStats) => priceStats.median_price);
-
     let pricesAmazon = data.prices
     ?.filter((priceStats) => priceStats.ecommerce_name === 'amazon')
     ?.map((priceStats) => {
@@ -32,7 +24,7 @@
     ?.filter((priceStats) => priceStats.ecommerce_name === 'amazon')
     ?.map((priceStats) => priceStats.query_dt.substring(0, 10));
 
-    let chart: Chart<"line", { ecommerce_name: string | null; highest_price: number | null; id: number; lowest_price: number | null; mean_price: number | null; median_price: number | null; query_dt: string; query_id: number; queries: { query_string: string | null; } | null; }[] | undefined, string>;
+    let chart;
 
     let options = {
         responsive: true,
@@ -41,7 +33,7 @@
                 callbacks: {
                     footer: function(context: { raw: any; }[]) {
                         const priceStats = context[0].raw;
-                        return `Lowest Price: ${priceStats.lowest_price}, \nHighest Price: ${priceStats.highest_price}`;
+                        return `Lowest Price: ${priceStats.lowest_price}\nHighest Price: ${priceStats.highest_price}\nStandard Deviation: ${priceStats.std_dev_price}`;
                     }
                 }
             }
