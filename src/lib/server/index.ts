@@ -18,7 +18,7 @@ export async function findProduct(queryTerms: string[]) {
 	if (error) {
 		return {'message': 'Error!'};
 	}
-    console.log(`Data: ${data}`);
+
 	if (data.length === 0) {
 		return {'message': 'No Results Found. Would you like to start tracking your new search term?'};
 	}
@@ -38,9 +38,6 @@ export async function getPrices(queryId: number) {
     if (error) {
 		return {'message': 'Error!'};
 	}
-    data.forEach(row => {
-        console.log(row);
-    });
 
     return {'prices': data};
 }
