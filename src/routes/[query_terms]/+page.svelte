@@ -85,10 +85,8 @@
     .search-result {
         width: 600px;
         padding: 10px;
-        border-radius: 10px;
-        border-width: 3px;
-        border-style: solid;
-        border-color: #F7B733;
+        border-radius: 0.5rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
     .submit-button {
