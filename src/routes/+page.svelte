@@ -1,57 +1,15 @@
-<h1 class="main-title centered text-vermillion text-bold">PriceHist</h1>
+<div class="flex flex-col items-center">
+    <h1 class="underline underline-offset-4 decoration-double decoration-2 font-serif font-semibold text-7xl text-red-500 py-16">PriceHist</h1>
 
-<p class="centered text-white">It's the Wayback Machine of Ecommerce Goods.</p>
+    <p class="italic font-serif font-normal text-3xl text-white pt-4 pb-10">It's the Wayback Machine of Ecommerce Goods.</p>
 
-<form class="centered flex-col form-container" method="GET" action="/search">
-    <label class="text-white" for="query">
-        Search for a product and see its price over time:
-    </label>
-    <div id="input-container" class="centered">
-        <input class="input-size" type="text" id="query" name="query" />
-        <input type="submit" value="Search"/>
-    </div>
-</form>
-
-<style>
-    .main-title {
-        font-size: 100px;
-    }
-
-    .centered {
-        display: flex;
-        justify-content: center;
-    }
-
-    .flex-col {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .form-container {
-        height: 75%;
-    }
-
-    .text-bold {
-        font-weight: bolder;
-    }
-
-    .input-size {
-        padding: 5px;
-        width: 40%;
-        height: 100%;
-    }
-
-    #input-container {
-        width: 600px;
-    }
-
-    p {
-        font-size: xx-large;
-        font-weight: bold;
-    }
-
-    label {
-        font-size: large;
-        padding-bottom: 10px;
-    }
-</style>
+    <form class="w-1/2 flex flex-col items-center" method="GET" action="/search">
+        <label class="font-serif font-normal text-xl text-white py-8 px-32" for="query">
+            Search for a product and see its price over time:
+        </label>
+        <div class="w-full flex justify-center">
+            <input class="rounded-s-full h-10 w-2/3 border-4 pl-2" type="text" id="query" name="query" />
+            <input class="rounded-e-full w-24 bg-red-400 text-white hover:bg-white hover:text-red-400 cursor-pointer" type="submit" value="Search"/>
+        </div>
+    </form>
+</div>

@@ -1,4 +1,6 @@
-/* CSS Globals */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .text-vermillion {
     color: #FC4A1A;
