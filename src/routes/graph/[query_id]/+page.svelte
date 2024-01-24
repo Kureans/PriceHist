@@ -37,7 +37,7 @@
                     }
                 }
             }
-        }
+        },
     }
 
     onMount(() => {
@@ -52,14 +52,14 @@
 				data: {
 						labels: datetimeLabels,
 						datasets: [{
-								label: 'Amazon Median Price',
+								label: 'Amazon Median Price (SGD)',
 								data: pricesAmazon,
                                 parsing: {
                                     xAxisKey: 'query_dt',
                                     yAxisKey: 'median_price'
                                 },
 						}, {
-                            label: 'Lazada Median Price',
+                            label: 'Lazada Median Price (SGD)',
                             data: pricesLazada,
                             parsing: {
                                 xAxisKey: 'query_dt',
@@ -71,20 +71,16 @@
 		});
     });
 </script>
-
+<div class="flex flex-col items-center">
 {#if data.prices && data.prices.length > 0}
-    <h1 class="text-vermillion">Graph for {data.prices[0].queries?.query_string}:</h1>
+    <h1 class="font-serif text-white font-semibold text-2xl py-4">Graph for "{data.prices[0].queries?.query_string}":</h1>
 {:else}
-    <h1>Sorry, no data points have been collected for this search term yet!</h1>
+    <h1 class="font-serif text-white font-semibold text-2xl py-4">Sorry, no data points have been collected for this search term yet!</h1>
 {/if}
 
 {#if data.message}
-    <p>{data.message}</p>
+    <p class="font-serif text-white font-semibold text-2xl py-4">{data.message}</p>
 {:else}
-    <div style="width: 800px; background-color: white;"><canvas bind:this={chartCanvas} id="price-history"></canvas></div>
-    <!-- <button on:click={() => addData()}>Change Chart</button> -->
+    <div class="w-3/5 bg-white border-4 border-red-400 shadow-xl rounded-md"><canvas bind:this={chartCanvas} id="price-history"></canvas></div>
 {/if}
-
-<style>
-
-</style>
+</div>
