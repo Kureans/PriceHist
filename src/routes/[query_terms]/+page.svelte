@@ -26,15 +26,6 @@
 
 </script>
 
-<div class="logo-input-container">
-    <a href="/"><h1 class="main-title text-vermillion text-bold margin-left-s">PriceHist</h1></a>
-    <form class="form-styling flex-row margin-left-m" method="GET" action="/search">
-        <input class="search-input" type="text" id="query" name="query" value={queryString}/>
-        <input class="submit-button" type="submit" value="Search"/>
-    </form>
-</div>
-
-
 <h1 class="text-vermillion margin-left-s">Results for {queryString}:</h1>
 
 {#if data.message}
@@ -61,63 +52,3 @@
         </div>
     {/if}
 {/if}
-
-<style>
-    .logo-input-container {
-        display: flex;
-        width: 800px;
-    }
-
-    .link-container {
-        display: inline-block;
-        width: max-content;
-    }
-
-    .flex-row {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .main-title {
-        font-size: 40px;
-    }
-
-    .search-result {
-        width: 600px;
-        padding: 10px;
-        border-radius: 0.5rem;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    .submit-button {
-        width: 60px;
-    }
-
-    .form-styling {
-        margin-top: 20px;
-        margin-left: 20px;
-    }
-
-    .search-input {
-        height: 26px;
-        width: 500px;
-    }
-
-    .margin-left-s {
-        margin-left: 20px;
-    }
-
-    .margin-left-m {
-        margin-left: 40px;
-    }
-
-    input {
-        padding: 5px;
-        height: 50%;
-        margin-top: 10px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-</style>
