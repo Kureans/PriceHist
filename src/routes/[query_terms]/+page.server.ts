@@ -7,7 +7,6 @@ export function load({url}) {
             return;
     }
     console.log(`Query String: ${queryString}`);
-    const queryTerms = queryString.split(" ");
-    return db.findProduct(queryTerms);
+    return db.findProduct(queryString);
 }
 

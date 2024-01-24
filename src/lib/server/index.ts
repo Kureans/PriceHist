@@ -4,19 +4,19 @@ import { type Database } from '$lib/types/supabase';
 
 const client = createClient<Database>(SUPABASE_URL, SUPABASE_KEY);
 
-export async function findProduct(queryTerms: string[]) {
-	let dbQueryString = queryTerms.reduce((accumulator, term) => {
-		const formattedTerm = `\`${term}\` & `;
-		return accumulator.concat(formattedTerm);
-	}, '');
-	dbQueryString = dbQueryString.slice(0, -2);
-	console.log(dbQueryString);
+export async function findProduct(queryString: string) {
+
 	const { data, error } = await client
 		.from('queries')
 		.select()
-		.textSearch('query_string', dbQueryString);
+		.textSearch('query_string', queryString, {
+			type: 'websearch',
+			config: 'english',
+		});
+
 	if (error) {
-		return {'message': 'Error!'};
+		console.log(error);
+		return {'message': "Error!"};
 	}
 
 	if (data.length === 0) {
