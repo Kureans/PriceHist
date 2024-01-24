@@ -26,26 +26,28 @@
 
 </script>
 
-<h1 class="text-vermillion margin-left-s">Results for {queryString}:</h1>
+<h1 class="font-serif font-semibold text-white text-2xl mx-8 pt-4">Results for "{queryString}":</h1>
 
 {#if data.message}
-    <p class="text-white margin-left-s">{data.message}</p>
+    <div class="mx-8 mt-4 flex items-center">
     {#if data.message !== "Error!"}
         {#if !isTracking}
-            <button class="sunshine text-white margin-left-s" on:click={() => beginTrackingQuery(queryString)}>Start Tracking</button>
+            <p class="font-serif text-white pr-4">{data.message}</p>
+            <button class="font-serif rounded-3xl p-2 w-36 bg-red-400 text-white hover:bg-white hover:text-red-400 cursor-pointer shadow-md" on:click={() => beginTrackingQuery(queryString)}>Start Tracking</button>
         {:else}
-            <div class="text-white margin-left-s">Successfully started Tracking!</div>
+            <div class="font-serif text-red-400 font-semibold text-2xl">Successfully started Tracking!</div>
         {/if}
     {/if}
+    </div>
 {:else}
     {#if data.queries}
-        <div>
+        <div class="w-1/3 mx-8 mt-4">
         {#each data.queries as { created_at, exclude_string, id, query_string }}
-            <a class="link-container" href="/graph/{id}">
-                <div class="search-result white margin-left-s">
+            <a href="/graph/{id}">
+                <div class="font-serif bg-white shadow-md px-8 py-4 rounded-3xl">
+                    <p class="font-bold text-xl pb-2">Search Term: "{query_string}"</p>
                     <p>Started Tracking On: {created_at.substring(0, 10)}</p>
-                    <p>Query String: {query_string}</p>
-                    <p>Exclude String: {exclude_string}</p>
+                    <p>Exclude Terms: {exclude_string === null ? exclude_string : 'NIL'}</p>
                 </div>
             </a>
         {/each}

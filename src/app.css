@@ -2,38 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.text-vermillion {
-    color: #FC4A1A;
-}
-
-.text-white {
-    color: white;
-}
-
-.vermillion {
-    background-color: #FC4A1A;
-}
-
-.fresh {
-    background-color: #4ABDAC;
-}
-
-.sunshine {
-    background-color: #F7B733;
-}
-
-.clean {
-    background-color: #DFDCE3;
-}
-
-.white {
-    background-color: whitesmoke;
-}
-
 body {
     background-color: #4ABDAC;
-}
-
-h1, p, label {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
